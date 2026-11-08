@@ -1,0 +1,10 @@
+===================================================
+RESULTADOS EJERCICIO 1: AJEDREZ (LENGUAJE C)
+Estudiante: Jesus Guzman
+===================================================
+Movimientos evaluados: 500
+Posicion inicial: a2
+Estado: movimiento CORRECTO.
+Tiempo total (10 iteraciones): 0.0000 ms
+Tiempo promedio por corrida: 0.0000 ms
+---------------------------------------------------

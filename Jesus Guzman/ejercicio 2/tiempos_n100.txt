@@ -1,0 +1,12 @@
+===================================================
+COMPARATIVA DE TIEMPOS n=100 (C vs PYTHON)
+Estudiante: Jesus Guzman
+===================================================
+[C] Repeticiones: 2000
+[C] Tiempo total: 32.0000 ms
+[C] Tiempo promedio generacion n=100: 0.016000 ms
+---------------------------------------------------
+[Python] Repeticiones: 2000
+[Python] Tiempo total: 1243.4574 ms
+[Python] Tiempo promedio generacion n=100: 0.621729 ms
+===================================================

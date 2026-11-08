@@ -1,0 +1,8 @@
+===================================================
+RESULTADOS EJERCICIO 3: TRADUCTOR LEXICO C
+Estudiante: Jesus Guzman
+===================================================
+[C] Archivo procesado: entrada.c (524 bytes)
+[C] Palabras reservadas traducidas: 13
+[C] Tiempo de ejecucion: 2.0000 ms
+---------------------------------------------------
