@@ -1,0 +1,10 @@
+===================================================
+RESULTADOS EJERCICIO 1: AJEDREZ (PYTHON)
+Estudiante: Jose Miserol
+===================================================
+Movimientos evaluados: 500
+Posicion inicial: a2
+Estado: movimiento CORRECTO
+Tiempo total (10 iteraciones): 1.629700 ms
+Tiempo promedio por corrida: 0.162970 ms
+---------------------------------------------------

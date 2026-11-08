@@ -1,0 +1,12 @@
+﻿===================================================
+COMPARATIVA DE TIEMPOS n=100 (C vs PYTHON)
+Estudiante: Jose Miserol
+===================================================
+Parametros: n = 100, x = 1, Repeticiones = 10000
+
+[Python]
+Tiempo promedio para generar n=100 (10000 repeticiones): 393.406 microsegundos
+
+[C]
+Tiempo promedio para generar n=100 (10000 repeticiones): 27.376 microsegundos
+===================================================
