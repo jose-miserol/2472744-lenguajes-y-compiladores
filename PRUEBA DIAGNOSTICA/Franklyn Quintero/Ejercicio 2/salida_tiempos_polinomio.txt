@@ -1,0 +1,12 @@
+=====================================================
+REPORTE DE EJECUCION: POLINOMIO Y TIEMPOS (EJ. 2)
+Estudiante: Franklyn Quintero
+=====================================================
+Polinomio generado (n=6): (x+1)^6 = x^6 + 6x^5 + 15x^4 + 20x^3 + 15x^2 + 6x + 1
+Evaluacion en x=2: f(2) = 729
+-----------------------------------------------------
+COMPARACION DE TIEMPOS (n=100, 100 iteraciones):
+  Tiempo Python: 0.023982 s (23.982 ms)
+  Tiempo C:      0.001000 s (1.000 ms)
+  Aceleracion:   C es 23.98 veces mas rapido
+=====================================================

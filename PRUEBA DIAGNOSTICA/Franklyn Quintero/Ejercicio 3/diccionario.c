@@ -38,7 +38,7 @@ PalabraReservada diccionario[] = {
     {"union", "union"},
     {"unsigned", "sin_signo"},
     {"void", "vacio"},
-    {"volatile", " volatil"},
+    {"volatile", "volatil"},
     {"while", "mientras"}
 };
 
@@ -71,37 +71,65 @@ char* cargar_archivo_dinamico(const char *nombre_archivo, long *tamano_out) {
     buffer[leidos] = '\0';
     fclose(archivo);
 
-    *tamano_out = tamano;
+    *tamano_out = leidos;
     return buffer;
 }
 
-void analizar_y_traducir(const char *contenido) {
-    char *copia = strdup(contenido);
-    char *token = strtok(copia, " \t\n(),;{}[]=+\-\*\/<>#");
-    
+void analizar_y_traducir(const char *contenido, const char *nombre_archivo_salida) {
+    char *copia = _strdup(contenido);
+    if (!copia) return;
+
+    FILE *f_salida = fopen(nombre_archivo_salida, "w");
+    if (f_salida) {
+        fprintf(f_salida, "=====================================================\n");
+        fprintf(f_salida, "REPORTE DE TRADUCCION DE PALABRAS RESERVADAS EN C\n");
+        fprintf(f_salida, "Estudiante: Franklyn Quintero (Ejercicio 3)\n");
+        fprintf(f_salida, "=====================================================\n\n");
+    }
+
     printf("--- PALABRAS RESERVADAS ENCONTRADAS Y TRADUCIDAS ---\n");
+    
+    const char *delimitadores = " \t\n(),;{}[]=+-*/<>#\"'";
+    char *token = strtok(copia, delimitadores);
+    int encontradas = 0;
+
     while (token != NULL) {
         char *traduccion = buscar_traduccion(token);
         if (traduccion != NULL) {
-            printf("[EN] %s  -->  [ES] %s\n", token, traduccion);
+            printf("[EN] %-10s  -->  [ES] %s\n", token, traduccion);
+            if (f_salida) {
+                fprintf(f_salida, "[EN] %-10s  -->  [ES] %s\n", token, traduccion);
+            }
+            encontradas++;
         }
-        token = strtok(NULL, " \t\n(),;{}[]=+\-\*\/<>#");
+        token = strtok(NULL, delimitadores);
     }
+
+    printf("\nTotal de palabras reservadas detectadas: %d\n", encontradas);
+    if (f_salida) {
+        fprintf(f_salida, "\nTotal de palabras reservadas detectadas: %d\n", encontradas);
+        fclose(f_salida);
+        printf("Reporte guardado con exito en: %s\n", nombre_archivo_salida);
+    }
+
     free(copia);
 }
 
-int main() {
-    const char *nombre_archivo = "codigo_muestra.c";
+int main(int argc, char *argv[]) {
+    const char *nombre_archivo = (argc > 1) ? argv[1] : "main.c";
+    const char *nombre_salida = "salida_diccionario.txt";
     long tamano = 0;
 
     char *memoria_dinamica = cargar_archivo_dinamico(nombre_archivo, &tamano);
     if (!memoria_dinamica) {
-        printf("Error al cargar el archivo de codigo en memoria dinamica.\n");
+        printf("Error: No se pudo cargar el archivo '%s' en memoria dinamica.\n", nombre_archivo);
         return 1;
     }
 
-    printf("Codigo fuente cargado dinamicamente en memoria (%ld bytes).\n\n", tamano);
-    analizar_y_traducir(memoria_dinamica);
+    printf("--- EJERCICIO 3: TRADUCTOR DE PALABRAS RESERVADAS DE C ---\n");
+    printf("Codigo fuente cargado dinamicamente en memoria desde '%s' (%ld bytes).\n\n", nombre_archivo, tamano);
+    
+    analizar_y_traducir(memoria_dinamica, nombre_salida);
 
     free(memoria_dinamica);
     return 0;

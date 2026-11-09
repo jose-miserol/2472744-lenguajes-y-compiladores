@@ -1,0 +1,21 @@
+=====================================================
+REPORTE DE EJECUCION: MOVIMIENTOS DE CABALLO (EJ. 1)
+Estudiante: Franklyn Quintero
+=====================================================
+Posicion inicial (Ak): a2
+Cantidad de movimientos evaluados: 500
+Resultado de la validacion: movimiento CORRECTO.
+-----------------------------------------------------
+  Corrida  1: 0.000268 s (0.2678 ms)
+  Corrida  2: 0.000218 s (0.2180 ms)
+  Corrida  3: 0.000217 s (0.2172 ms)
+  Corrida  4: 0.000206 s (0.2060 ms)
+  Corrida  5: 0.000232 s (0.2322 ms)
+  Corrida  6: 0.000295 s (0.2953 ms)
+  Corrida  7: 0.000287 s (0.2867 ms)
+  Corrida  8: 0.000229 s (0.2288 ms)
+  Corrida  9: 0.000359 s (0.3589 ms)
+  Corrida 10: 0.000232 s (0.2324 ms)
+-----------------------------------------------------
+Tiempo total (10 ejecuciones): 0.002543 s (2.5433 ms)
+Tiempo promedio por ejecucion: 0.000254 s (0.2543 ms)

@@ -1,0 +1,19 @@
+=====================================================
+REPORTE DE TRADUCCION DE PALABRAS RESERVADAS EN C
+Estudiante: Franklyn Quintero (Ejercicio 3)
+=====================================================
+
+[EN] int         -->  [ES] entero
+[EN] int         -->  [ES] entero
+[EN] float       -->  [ES] flotante
+[EN] const       -->  [ES] constante
+[EN] char        -->  [ES] caracter
+[EN] if          -->  [ES] si
+[EN] for         -->  [ES] para
+[EN] int         -->  [ES] entero
+[EN] return      -->  [ES] retornar
+[EN] else        -->  [ES] sino
+[EN] while       -->  [ES] mientras
+[EN] return      -->  [ES] retornar
+
+Total de palabras reservadas detectadas: 12
