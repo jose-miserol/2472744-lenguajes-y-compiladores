@@ -1,0 +1,108 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+    const char *ingles;
+    const char *espanol;
+} PalabraReservada;
+
+PalabraReservada diccionario[] = {
+    {"auto", "automatico"},
+    {"break", "romper / interrumpir"},
+    {"case", "caso"},
+    {"char", "caracter"},
+    {"const", "constante"},
+    {"continue", "continuar"},
+    {"default", "por_defecto"},
+    {"do", "hacer"},
+    {"double", "doble"},
+    {"else", "sino"},
+    {"enum", "enumeracion"},
+    {"extern", "externo"},
+    {"float", "flotante"},
+    {"for", "para"},
+    {"goto", "ir_a"},
+    {"if", "si"},
+    {"int", "entero"},
+    {"long", "largo"},
+    {"register", "registro"},
+    {"return", "retornar"},
+    {"short", "corto"},
+    {"signed", "con_signo"},
+    {"sizeof", "tamano_de"},
+    {"static", "estatico"},
+    {"struct", "estructura"},
+    {"switch", "segun"},
+    {"typedef", "definir_tipo"},
+    {"union", "union"},
+    {"unsigned", "sin_signo"},
+    {"void", "vacio"},
+    {"volatile", " volatil"},
+    {"while", "mientras"}
+};
+
+int total_palabras = sizeof(diccionario) / sizeof(diccionario[0]);
+
+char* buscar_traduccion(const char *palabra) {
+    for (int i = 0; i < total_palabras; i++) {
+        if (strcmp(diccionario[i].ingles, palabra) == 0) {
+            return (char*)diccionario[i].espanol;
+        }
+    }
+    return NULL;
+}
+
+char* cargar_archivo_dinamico(const char *nombre_archivo, long *tamano_out) {
+    FILE *archivo = fopen(nombre_archivo, "r");
+    if (!archivo) return NULL;
+
+    fseek(archivo, 0, SEEK_END);
+    long tamano = ftell(archivo);
+    fseek(archivo, 0, SEEK_SET);
+
+    char *buffer = (char*) malloc(tamano + 1);
+    if (!buffer) {
+        fclose(archivo);
+        return NULL;
+    }
+
+    long leidos = fread(buffer, 1, tamano, archivo);
+    buffer[leidos] = '\0';
+    fclose(archivo);
+
+    *tamano_out = tamano;
+    return buffer;
+}
+
+void analizar_y_traducir(const char *contenido) {
+    char *copia = strdup(contenido);
+    char *token = strtok(copia, " \t\n(),;{}[]=+\-\*\/<>#");
+    
+    printf("--- PALABRAS RESERVADAS ENCONTRADAS Y TRADUCIDAS ---\n");
+    while (token != NULL) {
+        char *traduccion = buscar_traduccion(token);
+        if (traduccion != NULL) {
+            printf("[EN] %s  -->  [ES] %s\n", token, traduccion);
+        }
+        token = strtok(NULL, " \t\n(),;{}[]=+\-\*\/<>#");
+    }
+    free(copia);
+}
+
+int main() {
+    const char *nombre_archivo = "codigo_muestra.c";
+    long tamano = 0;
+
+    char *memoria_dinamica = cargar_archivo_dinamico(nombre_archivo, &tamano);
+    if (!memoria_dinamica) {
+        printf("Error al cargar el archivo de codigo en memoria dinamica.\n");
+        return 1;
+    }
+
+    printf("Codigo fuente cargado dinamicamente en memoria (%ld bytes).\n\n", tamano);
+    analizar_y_traducir(memoria_dinamica);
+
+    free(memoria_dinamica);
+    return 0;
+}

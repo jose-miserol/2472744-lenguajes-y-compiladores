@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "--- EJECUTANDO PYTHON ---"
+python3 ejercicio2.py
+echo "--- COMPILANDO Y EJECUTANDO C ---"
+gcc ejercicio2.c -o ejercicio2_c
+./ejercicio2_c

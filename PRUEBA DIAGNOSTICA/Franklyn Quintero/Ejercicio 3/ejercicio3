@@ -1,0 +1,3 @@
+#!/bin/bash
+gcc ejercicio3.c -o ejercicio3_c
+./ejercicio3_c

@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+long long* generar_pascal(int n) {
+    long long *fila_anterior = (long long*) malloc(1 * sizeof(long long));
+    if (!fila_anterior) return NULL;
+    fila_anterior[0] = 1;
+
+    for (int i = 1; i <= n; i++) {
+        long long *fila_actual = (long long*) malloc((i + 1) * sizeof(long long));
+        if (!fila_actual) {
+            free(fila_anterior);
+            return NULL;
+        }
+        fila_actual[0] = 1;
+        fila_actual[i] = 1;
+        for (int j = 1; j < i; j++) {
+            fila_actual[j] = fila_anterior[j - 1] + fila_anterior[j];
+        }
+        free(fila_anterior);
+        fila_anterior = fila_actual;
+    }
+    return fila_anterior;
+}
+
+int main() {
+    int n = 6;
+    long long *coefs = generar_pascal(n);
+    printf("Coeficientes para (x+1)^%d:\n", n);
+    for (int i = 0; i <= n; i++) {
+        printf("%lld ", coefs[i]);
+    }
+    printf("\n");
+    free(coefs);
+
+    clock_t inicio = clock();
+    for (int k = 0; k < 100; k++) {
+        long long *c = generar_pascal(100);
+        free(c);
+    }
+    clock_t fin = clock();
+    double tiempo = (double)(fin - inicio) / CLOCKS_PER_SEC;
+    printf("Tiempo C (100 iteraciones para n=100): %.6f s\n", tiempo);
+
+    return 0;
+}
