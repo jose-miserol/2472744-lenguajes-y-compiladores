@@ -1,0 +1,14 @@
+#include <stdio.h>
+/* if while dentro de un comentario no se traduce */
+entero main(vacio) {
+    entero suma = 0;
+    para (entero i = 0; i < 5; i++) {
+        si (i == 3) continuar;
+        suma += i;
+    }
+    mientras (suma > 0) {
+        suma--;
+    }
+    printf("return if for dentro de una cadena\n");
+    retornar 0;
+}

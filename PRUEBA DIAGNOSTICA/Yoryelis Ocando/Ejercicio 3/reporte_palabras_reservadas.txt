@@ -1,0 +1,13 @@
+Programa analizado: programa de prueba incluido
+
+Palabra (C)      Espanol              Veces   Lineas
+------------------------------------------------------------------
+continue         continuar            1       6
+for              para                 1       5
+if               si                   1       6
+int              entero               3       3,4,5
+return           retornar             1       13
+void             vacio                1       3
+while            mientras             1       9
+
+Palabras reservadas distintas: 7 | Apariciones totales: 9

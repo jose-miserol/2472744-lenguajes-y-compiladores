@@ -1,0 +1,9 @@
+========================================
+  Ejercicio 2 - Triangulo de Pascal (C)
+========================================
+Polinomios generados      : (x+1)^n, n = 0..100 (101 polinomios)
+Coeficiente central n=100 : 100891344545564193334812497256
+----------------------------------------
+1 generacion              :     95.200 microsegundos (0.095200 milisegundos)
+Promedio de 1000 generaciones :     52.432 microsegundos (0.052432 milisegundos)
+========================================

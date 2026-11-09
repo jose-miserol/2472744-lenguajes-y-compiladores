@@ -1,0 +1,9 @@
+========================================
+  Ejercicio 2 - Triangulo de Pascal (Python)
+========================================
+Polinomios generados      : (x+1)^n, n = 0..100 (101 polinomios)
+Coeficiente central n=100 : 100891344545564193334812497256
+----------------------------------------
+1 generacion              :    665.400 microsegundos (0.665400 milisegundos)
+Promedio de 1000 generaciones :    614.617 microsegundos (0.614617 milisegundos)
+========================================
